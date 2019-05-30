@@ -23,6 +23,9 @@ void qf16_mul(qf16 *dest, const qf16 *q, const qf16 *r);
 // Add two quaternions, dest = q + r
 void qf16_add(qf16 *dest, const qf16 *q, const qf16 *r);
 
+// Substract two quaternions, dest = q - r
+void qf16_sub(qf16 *dest, const qf16 *q, const qf16 *r);
+
 // Multiply quaternion by scalar
 void qf16_mul_s(qf16 *dest, const qf16 *q, fix16_t s);
 
@@ -31,6 +34,9 @@ void qf16_div_s(qf16 *dest, const qf16 *q, fix16_t s);
 
 // Dot product of two quaternions
 fix16_t qf16_dot(const qf16 *q, const qf16 *r);
+
+// Distance between two quaternions
+fix16_t qf16_distance(const qf16 *q, const qf16 *r);
 
 // Quaternion norm
 fix16_t qf16_norm(const qf16 *q);

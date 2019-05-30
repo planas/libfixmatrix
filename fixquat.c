@@ -30,6 +30,14 @@ void qf16_add(qf16 *dest, const qf16 *q, const qf16 *r)
     dest->d = q->d + r->d;
 }
 
+void qf16_sub(qf16 *dest, const qf16 *q, const qf16 *r)
+{
+    dest->a = q->a - r->a;
+    dest->b = q->b - r->b;
+    dest->c = q->c - r->c;
+    dest->d = q->d - r->d;
+}
+
 // Multiply quaternion by scalar
 void qf16_mul_s(qf16 *dest, const qf16 *q, fix16_t s)
 {
@@ -57,6 +65,13 @@ fix16_t qf16_dot(const qf16 *q, const qf16 *r)
 fix16_t qf16_norm(const qf16 *q)
 {
     return fa16_norm(&q->a, &q->b - &q->a, 4);
+}
+
+fix16_t qf16_distance(const qf16 *q, const qf16 *r)
+{
+    qf16 diff;
+    qf16_sub(&diff, q, r);
+    return qf16_norm(&diff);
 }
 
 // Normalize quaternion
